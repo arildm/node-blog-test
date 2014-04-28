@@ -1,0 +1,25 @@
+{
+    "id": 1
+  , "title": "Testinlägg"
+  , "text": "Lite text"
+  , "comments": [
+        {
+            "id": 2
+          , "blogId": 1
+          , "author": {
+                "name": "Karl karlsson"
+              , "commentId": 2
+            }
+          , "text": "Min kommentar"
+        }
+      , {
+            "id": 3
+          , "blogId": 1
+          , "author": {
+                "name": "Homer Simpsons"
+              , "commentId": 3
+            }
+          , "text": "Homer's kommentar"
+        }
+    ]
+}
