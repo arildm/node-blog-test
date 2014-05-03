@@ -1,16 +1,14 @@
-function dump(data) {
-    var output = "";
-    output += "# " + data.title + "\n";
-    output += data.text + "\n\n";
-    output += "## Comments\n\n";
+var BlogDB = require("./blogdb").BlogDB;
+var render = require("./render");
 
-    for (var i = 0; i < data.comments.length; i++) {
-        var comment = data.comments[i];
-        output += comment.author.name + " wrote:\n";
-        output += comment.text + "\n\n";
-    }
-
-    return output;
+function dump(response) {
+    var db = new BlogDB();
+    db.connect(function() {
+        db.allPosts(function(posts) {
+            response.write(render.render(posts));
+            response.end();
+        });
+    });
 }
 
 exports.dump = dump;

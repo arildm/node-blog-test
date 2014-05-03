@@ -1,0 +1,10 @@
+{
+    "name": "blog",
+    "description": "blog test",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "async": ">= 0.8.0",
+        "mongodb": ">=  1.4.3"
+    }
+}

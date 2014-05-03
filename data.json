@@ -1,25 +1,46 @@
-{
-    "id": 1
-  , "title": "Testinlägg"
-  , "text": "Lite text"
-  , "comments": [
-        {
-            "id": 2
-          , "blogId": 1
-          , "author": {
-                "name": "Karl karlsson"
-              , "commentId": 2
+[
+    {
+        "title": "Testinlägg"
+      , "text": "Lite text"
+      , "comments": [
+            {
+                "blogId": 1
+              , "author": {
+                    "name": "Karl karlsson"
+                  , "commentId": 2
+                }
+              , "text": "Min kommentar"
             }
-          , "text": "Min kommentar"
-        }
-      , {
-            "id": 3
-          , "blogId": 1
-          , "author": {
-                "name": "Homer Simpsons"
-              , "commentId": 3
+          , {
+                "blogId": 1
+              , "author": {
+                    "name": "Homer Simpsons"
+                  , "commentId": 3
+                }
+              , "text": "Homer's kommentar"
             }
-          , "text": "Homer's kommentar"
-        }
-    ]
-}
+        ]
+    }
+  , {
+        "title": "Festinlägg"
+      , "text": "Lite kex"
+      , "comments": [
+            {
+                "blogId": 2
+              , "author": {
+                    "name": "Karl karlsson"
+                  , "commentId": 4
+                }
+              , "text": "Min andra kommentar"
+            }
+          , {
+                "blogId": 2
+              , "author": {
+                    "name": "Homer Simpsons"
+                  , "commentId": 5
+                }
+              , "text": "Homer's andra kommentar"
+            }
+        ]
+    }
+]
