@@ -15,27 +15,37 @@ function BlogDB() {
     }
 
     this.allPosts = function (callback) {
-        self.db.collection('post')
-            .find()
-            .toArray(function(err, posts) {
-                if (err) throw err;
-                callback(posts);
+        self.db.collection('post').find().toArray(function(err, posts) {
+            async.each(posts, function(post, callback) {
+                self.getComments(post, function(err, comments) {
+                    if (err) throw err;
+                    post.comments = comments;
+                    callback();
+                });
+            }, function(err, results) {
+                callback(err, posts);
             });
+        });
     }
 
     this.getComments = function (post, callback) {
         if (post._id === undefined) throw "post has no id";
-        self.db.collection('comment')
-            .find({post: post._id})
-            .toArray(callback);
+        self.db.collection('comment').find({post: post._id}).toArray(function(err, comments) {
+            async.each(comments, function(comment, callback) {
+                self.getAuthor(comment, function(err, author) {
+                    if (err) throw err;
+                    comment.author = author;
+                    callback(err);
+                });
+            }, function(err) {
+                callback(err, comments);
+            });
+        });
     }
 
     this.getAuthor = function (comment, callback) {
         if (comment._id === undefined) throw "comment has no id";
-        self.db.collection('author')
-            .findOne({_id: comment.author}, function(err, results) {
-                callback(err, results);
-            });
+        self.db.collection('author').findOne({_id: comment.author}, callback);
     }
 
     this.addPost = function (title, text, callback) {
