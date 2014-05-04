@@ -5,15 +5,17 @@ exports.render = function(data) {
         post = data[i];
         output += "# " + post.title + "\n";
         output += post.text + "\n\n";
-        output += "## Comments\n\n";
+        output += "## Comments\n";
 
         if (post.comments) {
             for (var j = 0; j < post.comments.length; j++) {
                 var comment = post.comments[j];
-                output += comment.author.name + " wrote:\n";
-                output += comment.text + "\n\n";
+                output += comment.author.name + " wrote: ";
+                output += comment.text + "\n";
             }
         }
+
+        output += "\n\n";
     }
 
     return output;
