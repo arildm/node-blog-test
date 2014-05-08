@@ -7,7 +7,7 @@ async.series([
     blogdb.connect,
     blogdb.clear,
     function(callback) {
-        async.parallel([
+        async.series([ // Can not be parallell because of unique index of author
             function(callback) {
                 blogdb.addPost("Testinlägg", "Idag har jag klättrat i träd", function(err, posts) {
                     if (err) throw err;
