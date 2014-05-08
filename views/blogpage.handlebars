@@ -1,17 +1,11 @@
 <section id="main">
     {{#each posts}}
     <article class="post">
-        <h1 class="title">{{title}}</h1>
-        <div class="text">
-            {{text}}
-        </div>
+        {{> post}}
         {{#if comments}}
         <aside class="comments">
             {{#each comments}}
-            <article class="comment">
-                <strong>{{author.name}}</strong>:
-                {{text}}
-            </article>
+                {{> comment}}
             {{/each}}
         {{/if}}
     </article>
